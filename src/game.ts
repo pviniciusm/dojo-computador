@@ -37,3 +37,4 @@ class Game {
     return this._minRam;
   }
 }
+export {Game};
