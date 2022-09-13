@@ -7,3 +7,20 @@
 // 2) Crie o construtor da classe com os atributos obrigatórios como parâmetro
 
 // 3) Mantenha os atributos encapsulados
+
+class Game {
+  private _nome: String;
+  private _tamanho: number;
+  private _genero: String;
+  private _minRam: number;
+
+  constructor(nome: String, tamanho: number, minRam: number) {
+    this._nome = nome;
+    this._tamanho = tamanho;
+    this._minRam = minRam;
+  }
+
+  public getNome() {
+    return this._nome;
+  }
+}
