@@ -59,6 +59,22 @@ class Computador {
 
     this._indLigado = true;
   }
+
+  public listarGames() {
+    this._games?.map(game => {
+        console.log(`O jogo ${game.nome} está instalado.`);
+    })
+  }
+
+  public resumoComputador() {
+    let mensagem = `${this._processador}, ${this._ram} gb de ram`
+    
+    if(this.indLigado){
+        mensagem += `o computador está ligado`
+    } else{
+        mensagem += `o computador está desligado`
+    }
+  }
 }
 
 export { Computador };
