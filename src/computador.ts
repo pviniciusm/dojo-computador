@@ -22,5 +22,17 @@
             private _ram: number;
             private _capacidadeHd: number;
             private _indLigado: boolean;
-            private _games?:<>;
+            private _games?: Array <Game>;
+        
+        constructor (processador: string, ram:number, capacidadeHd:number){
+                this._processador = processador;
+                this._ram = ram;
+                this._capacidadeHd = capacidadeHd;
+
         }
+
+        
+
+        }
+
+        
