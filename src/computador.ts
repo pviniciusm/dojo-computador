@@ -15,24 +15,50 @@
     - ligarComputador (void), muda o indLigado para true
 		- avisar */
 
-    import {Game} from "./game"
+import { Game } from "./game";
 
-        class Computador{
-            private _processador: string;
-            private _ram: number;
-            private _capacidadeHd: number;
-            private _indLigado: boolean;
-            private _games?: Array <Game>;
-        
-        constructor (processador: string, ram:number, capacidadeHd:number){
-                this._processador = processador;
-                this._ram = ram;
-                this._capacidadeHd = capacidadeHd;
+class Computador {
+  private _processador: string;
+  private _ram: number;
+  private _capacidadeHd: number;
+  private _indLigado: boolean;
+  private _games?: Array<Game>;
 
-        }
+  constructor(processador: string, ram: number, capacidadeHd: number) {
+    this._processador = processador;
+    this._ram = ram;
+    this._capacidadeHd = capacidadeHd;
+    this._indLigado = false;
+    this._games = [];
+  }
 
-        
+  public get processador() {
+    return this._processador;
+  }
 
-        }
+  public get ram() {
+    return this._ram;
+  }
 
-        
+  public get capacidadeHd() {
+    return this._capacidadeHd;
+  }
+
+  public get indLigado() {
+    return this._indLigado;
+  }
+
+  public get games() {
+    return this._games;
+  }
+
+  public ligarComputador() {
+    if (this.indLigado) {
+      return console.log("O computador já está ligado aruá!");
+    }
+
+    this._indLigado = true;
+  }
+}
+
+export { Computador };
