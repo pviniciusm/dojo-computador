@@ -22,7 +22,7 @@ class Computador {
   private _ram: number;
   private _capacidadeHd: number;
   private _indLigado: boolean;
-  private _games?: Array<Game>;
+  public _games: Array<Game>;
 
   constructor(processador: string, ram: number, capacidadeHd: number) {
     this._processador = processador;
@@ -61,24 +61,33 @@ class Computador {
   }
 
   public listarGames() {
-    this._games?.map((game) => {
+    this._games.map((game) => {
       console.log(`O jogo ${game.nome} está instalado.`);
     });
   }
 
   public resumoComputador() {
-    let mensagem = `${this._processador}, ${this._ram} gb de ram`;
 
-    if (this.indLigado) {
-      mensagem += `o computador está ligado`;
-    } else {
-      mensagem += `o computador está desligado`;
-    }
-    mensagem += `A capacidade do HD é ${this._capacidadeHd} GB`;
+    let mensagem = `O processador é: ${this._processador}, possui ${this._ram} gb de ram, está ${this.indLigado? 'ligado' : 'desligado'} no momento.`
 
-    let totalTamGames = this.games?.reduce((prev, cur) => {
+    // let mensagem = `${this._processador}, ${this._ram} gb de ram`;
+
+
+
+    // if (this.indLigado) {
+    //   mensagem += `o computador está ligado`;
+    // } else {
+    //   mensagem += ` o computador está desligado`;
+    // }
+    mensagem += ` A capacidade do HD é ${this._capacidadeHd} GB. `;
+
+    let totalTamGames = this.games.reduce((prev, cur) => {
       return prev + cur.tamanho;
     }, 0);
+
+    mensagem += `A capacidade disponível é de ${this._capacidadeHd - totalTamGames}`;
+
+    return mensagem;
   }
 }
 
