@@ -22,7 +22,7 @@ class Computador {
   private _ram: number;
   private _capacidadeHd: number;
   private _indLigado: boolean;
-  public _games: Array<Game>;
+  private _games: Array<Game>;
 
   constructor(processador: string, ram: number, capacidadeHd: number) {
     this._processador = processador;
@@ -67,12 +67,11 @@ class Computador {
   }
 
   public resumoComputador() {
-
-    let mensagem = `O processador é: ${this._processador}, possui ${this._ram} gb de ram, está ${this.indLigado? 'ligado' : 'desligado'} no momento.`
+    let mensagem = `O processador é: ${this._processador}, possui ${
+      this._ram
+    } gb de ram, está ${this.indLigado ? "ligado" : "desligado"} no momento.`;
 
     // let mensagem = `${this._processador}, ${this._ram} gb de ram`;
-
-
 
     // if (this.indLigado) {
     //   mensagem += `o computador está ligado`;
@@ -85,9 +84,20 @@ class Computador {
       return prev + cur.tamanho;
     }, 0);
 
-    mensagem += `A capacidade disponível é de ${this._capacidadeHd - totalTamGames}`;
+    mensagem += `A capacidade disponível é de ${
+      this._capacidadeHd - totalTamGames
+    }`;
 
     return mensagem;
+  }
+
+  public instalarGame(jogo: Game) {
+    if (this._capacidadeHd * (90 / 100) > this._capacidadeHd) {
+      console.log("Memória insuficiente para instalar o game!");
+      return;
+    }
+    this._games.push(jogo);
+    console.log(`${jogo.nome} adicionado com sucesso!`);
   }
 }
 
