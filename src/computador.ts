@@ -92,8 +92,18 @@ class Computador {
   }
 
   public instalarGame(jogo: Game) {
-    if (this._capacidadeHd * (90 / 100) > this._capacidadeHd) {
+    if (this._capacidadeHd * (90 / 100) < jogo.tamanho) {
       console.log("Memória insuficiente para instalar o game!");
+      return;
+    }
+    if (jogo.minRam !== undefined) {
+      if (this._ram <= jogo.minRam) {
+        console.log("Memória ram insuficiente! :(");
+        return;
+      }
+    }
+    if (!this._indLigado) {
+      console.log("O computador necessita estar ligado para continuar!");
       return;
     }
     this._games.push(jogo);
