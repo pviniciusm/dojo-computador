@@ -96,6 +96,17 @@ class Computador {
       console.log("Memória insuficiente para instalar o game!");
       return;
     }
+    let totalTamanhoGames = this.games.reduce((prev, cur) => {
+        return prev + cur.tamanho;
+      }, 0);
+
+
+    if(jogo.tamanho + totalTamanhoGames > this._capacidadeHd){
+        console.log ("Memoria insuficiente")
+        return;
+    }
+
+
     if (jogo.minRam !== undefined) {
       if (this._ram <= jogo.minRam) {
         console.log("Memória ram insuficiente! :(");
